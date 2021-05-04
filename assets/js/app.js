@@ -114,3 +114,6 @@ function removeTweetLocalStorage(tweet){
         }
     });
     
+    //
+    localStorage.setItem('tweets', JSON.stringify(tweets));
+}

@@ -98,3 +98,19 @@ function localStorageOnLoad(){
         tweetList.appendChild(li);
     })
 }
+// removes the tweet from local storage
+function removeTweetLocalStorage(tweet){
+
+    //get tweet from storage
+    let tweets = getTweetsFromStorage();
+
+    // remove the x from the tweet 
+    const tweetDelete = tweet.substring( 0 , tweet.length -1);
+    
+    // Loop throught the tweets and remove the tweet that's equal
+    tweets.forEach(function(tweetLS, index){
+        if (tweetDelete === tweetLS){
+            tweets.splice(index, 1);
+        }
+    });
+    

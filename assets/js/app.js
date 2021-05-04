@@ -48,3 +48,24 @@ alert('Tweet Added');
 this.reset();
 
 }
+//Removes tweet from the DOM
+function removeTweet(e){
+    if(e.target.classList.contains('remove-tweet')){
+        e.target.parentElement.remove();
+    }
+
+    // Remove from storage
+    removeTweetLocalStorage (e.target.parentElement.textContent);
+}
+
+//add the tweets into the local storage
+function addTweetLocalStorage(tweet){
+    let tweets = getTweetsFromStorage();
+
+   // add the tweet into the array
+   tweets.push(tweet);
+
+   //convert tweet array into string
+   localStorage.setItem('tweets', JSON.stringify(tweets));
+
+}
